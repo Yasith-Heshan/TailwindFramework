@@ -1,5 +1,10 @@
 import React, { forwardRef, InputHTMLAttributes } from "react";
 
+interface Option {
+  value: string;
+  label: string;
+}
+
 type Props = {
   name: string;
   label: string;
@@ -7,12 +12,12 @@ type Props = {
   success?: boolean;
   errorMessage?: string;
   successMessage?: string;
-  placeholder?: string;
   labelClassName?: string;
   inputClassName?: string;
   containerClassName?: string;
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  options: Option[];
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 };
 
 const labelErrorClassName =
@@ -33,7 +38,7 @@ const inputErrorClassName =
 const inputDefaultClassName =
   "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
 
-const TextInput = forwardRef<HTMLInputElement, Props>(
+const DropDown = forwardRef<HTMLInputElement, Props>(
   (
     {
       name,
@@ -42,7 +47,6 @@ const TextInput = forwardRef<HTMLInputElement, Props>(
       success,
       errorMessage,
       successMessage,
-      placeholder,
       labelClassName,
       inputClassName,
       containerClassName,
@@ -74,18 +78,21 @@ const TextInput = forwardRef<HTMLInputElement, Props>(
     return (
       <div className={`${containerClassName} mb-6 h-24`}>
         <label htmlFor={name} className={labelBoxClassName}>
-          {label}
+          Select an option
         </label>
-        <input
-          ref={ref}
+        <select
           {...rest}
-          type={"text"}
           id={name}
           className={inputBoxClassName}
-          placeholder={placeholder}
           onChange={onChange}
           value={value}
-        />
+        >
+          {rest.options.map((option, index) => (
+            <option key={index} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
         {error ? (
           <p className="mt-2 text-sm text-red-600 dark:text-red-500">
             <span className="font-medium">Error!</span> {errorMessage}
@@ -102,5 +109,5 @@ const TextInput = forwardRef<HTMLInputElement, Props>(
   }
 );
 
-TextInput.displayName = "TextInput";
-export default TextInput;
+DropDown.displayName = "DropDown";
+export default DropDown;
