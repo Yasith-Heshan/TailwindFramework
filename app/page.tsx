@@ -1,76 +1,18 @@
-"use client";
-import React from "react";
-import { z } from "zod";
-import Button from "./components/basicComponents/Button/Button";
-import { ValidatedForm } from "./components/complexComponents/ValidatedForm/Form";
-import ControlledTextInput from "./components/complexComponents/ControlledTextField/ControlledTextInput";
-import ControlledDropDown from "./components/complexComponents/ControlledDropDown/ControlledDropDown";
+import React from 'react'
+import NavBar from './components/ComplexComponents/NavBar/NavBar'
 
-interface Inputs {
-  email: string;
-  password: string;
-  gender: string;
-}
-
-const schema = z.object({
-  email: z.string().email(),
-  password: z.string().min(6),
-  gender: z.enum(["male", "female"], { message: "Select gender" }),
-});
-
-export default function App() {
-  const defaultValues: Inputs = {
-    email: "",
-    password: "",
-    gender: "",
-  };
-
-  const onSubmit = (data: Inputs) => {
-    console.log(data);
-  };
-
+const page = () => {
+  const mainMenu = [
+    { name: 'Home', route: '/' },
+    { name: 'Buttons', route: '/buttons' },
+    { name: 'Form Inputs', route: '/formInputs' },
+    { name: 'Validate Form', route: '/validated_form' }
+  ]
   return (
-    <ValidatedForm<Inputs>
-      schema={schema}
-      onSubmit={onSubmit}
-      defaultValues={defaultValues}
-    >
-      {({ control, errors, isSubmitSuccessful }) => (
-        <>
-          <ControlledTextInput
-            name="email"
-            label="Email"
-            control={control}
-            errorMessage={errors.email?.message}
-            successMessage="Correct email"
-          />
+    <div className='dark'>
 
-          <ControlledTextInput
-            name="password"
-            label="Password"
-            control={control}
-            errorMessage={errors.password?.message}
-            successMessage="Correct password"
-          />
-
-          <ControlledDropDown
-            name="gender"
-            label="Gender"
-            control={control}
-            errorMessage={errors.gender?.message}
-            success={isSubmitSuccessful}
-            options={[
-              { value: "", label: "" },
-              { value: "male", label: "Male" },
-              { value: "female", label: "Female" },
-            ]}
-          />
-
-          <Button className="w-56" type="submit">
-            Submit
-          </Button>
-        </>
-      )}
-    </ValidatedForm>
-  );
+    </div>
+  )
 }
+
+export default page
