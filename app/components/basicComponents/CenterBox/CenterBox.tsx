@@ -5,7 +5,7 @@ type Props = {
   className?: string;
 };
 const CenterBox: React.FC<Props> = ({ children, className }) => {
-  return <div className={`${className} flex justify-center items-center`}>{children}</div>;
+  return <div className={`${className} h-full flex justify-center items-center`}>{children}</div>;
 };
 
 export default CenterBox;

@@ -6,6 +6,7 @@ import { ValidatedForm } from "../components/ComplexComponents/ValidatedForm/For
 import ControlledTextInput from "../components/ComplexComponents/ControlledTextField/ControlledTextInput";
 import ControlledDropDown from "../components/ComplexComponents/ControlledDropDown/ControlledDropDown";
 import CenterBox from "../components/basicComponents/CenterBox/CenterBox";
+import Container from "../components/basicComponents/Container/Container";
 
 interface Inputs {
   email: string;
@@ -31,48 +32,50 @@ export default function App() {
   };
 
   return (
-    <ValidatedForm<Inputs>
-      schema={schema}
-      onSubmit={onSubmit}
-      defaultValues={defaultValues}
-    >
-      {({ control, errors, isSubmitSuccessful }) => (
-        <>
-          <ControlledTextInput
-            name="email"
-            label="Email"
-            control={control}
-            errorMessage={errors.email?.message}
-            successMessage="Correct email"
-          />
+    <Container>
+      <ValidatedForm<Inputs>
+        schema={schema}
+        onSubmit={onSubmit}
+        defaultValues={defaultValues}
+      >
+        {({ control, errors, isSubmitSuccessful }) => (
+          <>
+            <ControlledTextInput
+              name="email"
+              label="Email"
+              control={control}
+              errorMessage={errors.email?.message}
+              successMessage="Correct email"
+            />
 
-          <ControlledTextInput
-            name="password"
-            label="Password"
-            control={control}
-            errorMessage={errors.password?.message}
-            successMessage="Correct password"
-          />
+            <ControlledTextInput
+              name="password"
+              label="Password"
+              control={control}
+              errorMessage={errors.password?.message}
+              successMessage="Correct password"
+            />
 
-          <ControlledDropDown
-            name="gender"
-            label="Gender"
-            control={control}
-            errorMessage={errors.gender?.message}
-            success={isSubmitSuccessful}
-            options={[
-              { value: "", label: "" },
-              { value: "male", label: "Male" },
-              { value: "female", label: "Female" },
-            ]}
-          />
-          <CenterBox>
-            <Button className="w-56" type="submit">
-              Submit
-            </Button>
-          </CenterBox>
-        </>
-      )}
-    </ValidatedForm>
+            <ControlledDropDown
+              name="gender"
+              label="Gender"
+              control={control}
+              errorMessage={errors.gender?.message}
+              success={isSubmitSuccessful}
+              options={[
+                { value: "", label: "" },
+                { value: "male", label: "Male" },
+                { value: "female", label: "Female" },
+              ]}
+            />
+            <CenterBox>
+              <Button className="w-56" type="submit">
+                Submit
+              </Button>
+            </CenterBox>
+          </>
+        )}
+      </ValidatedForm>
+    </Container>
   );
 }

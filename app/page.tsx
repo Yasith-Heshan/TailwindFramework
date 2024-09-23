@@ -1,17 +1,12 @@
 import React from 'react'
-import NavBar from './components/ComplexComponents/NavBar/NavBar'
+import Container from './components/basicComponents/Container/Container'
 
 const page = () => {
-  const mainMenu = [
-    { name: 'Home', route: '/' },
-    { name: 'Buttons', route: '/buttons' },
-    { name: 'Form Inputs', route: '/formInputs' },
-    { name: 'Validate Form', route: '/validated_form' }
-  ]
-  return (
-    <div className='dark'>
 
-    </div>
+  return (
+    <Container className='dark'>
+        <h1>Test h1</h1>
+    </Container>
   )
 }
 

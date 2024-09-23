@@ -6,6 +6,7 @@ import { ChangeEvent } from "react";
 import TextInput from "../components/basicComponents/TextInput/TextInput";
 import DropDown from "../components/basicComponents/DropDown/DropDown";
 import Button from "../components/basicComponents/Button/Button";
+import Container from "../components/basicComponents/Container/Container";
 
 interface Inputs {
   email: string;
@@ -46,7 +47,7 @@ export default function FormInputs() {
   console.log(errors);
 
   return (
-    <div>
+    <Container>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           name="email"
@@ -129,6 +130,6 @@ export default function FormInputs() {
           Submit
         </Button>
       </form>
-    </div>
+    </Container>
   );
 }

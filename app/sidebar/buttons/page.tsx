@@ -1,6 +1,6 @@
+import Button from "@/app/components/basicComponents/Button/Button";
+import Container from "@/app/components/basicComponents/Container/Container";
 import React from "react";
-import Button from "../components/basicComponents/Button/Button";
-import Container from "../components/basicComponents/Container/Container";
 
 const ButtonsAndSpinners = () => {
   return (
