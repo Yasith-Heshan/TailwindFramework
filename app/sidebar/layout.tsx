@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import SideBar from "../components/ComplexComponents/SideBar/SideBar";
-import Button from "../components/basicComponents/Button/Button";
 
 export const metadata: Metadata = {
   title: "Create Next App",
