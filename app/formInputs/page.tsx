@@ -44,8 +44,6 @@ export default function FormInputs() {
     console.log(data, errors);
   };
 
-  console.log(errors);
-
   return (
     <Container>
       <form onSubmit={handleSubmit(onSubmit)}>

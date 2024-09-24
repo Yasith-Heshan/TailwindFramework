@@ -2,11 +2,11 @@
 import React from "react";
 import { z } from "zod";
 import Button from "../components/basicComponents/Button/Button";
-import { ValidatedForm } from "../components/ComplexComponents/ValidatedForm/Form";
-import ControlledTextInput from "../components/ComplexComponents/ControlledTextField/ControlledTextInput";
-import ControlledDropDown from "../components/ComplexComponents/ControlledDropDown/ControlledDropDown";
 import CenterBox from "../components/basicComponents/CenterBox/CenterBox";
 import Container from "../components/basicComponents/Container/Container";
+import ControlledTextInput from "../components/complexComponents/ControlledTextField/ControlledTextInput";
+import { ValidatedForm } from "../components/complexComponents/ValidatedForm/Form";
+import ControlledDropDown from "../components/complexComponents/ControlledDropDown/ControlledDropDown";
 
 interface Inputs {
   email: string;
