@@ -11,7 +11,8 @@ const NavBarProvider = () => {
     { name: "Validate Form", route: "/validated_form" },
     { name: "Typography", route: "/typography" },
     { name: "LoadingSection", route: "/loadingSection" },
-    { name: "SideBar", route: "/sidebar" }
+    { name: "SideBar", route: "/sidebar" },
+    { name: "Pagination", route: "/pagination" },
   ];
   const userDetails = {
     name: "John Doe",

@@ -12,12 +12,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
- 
   return (
     <html lang="en">
       <body>
-        <NavBarProvider/>
-        {children}
+          <NavBarProvider />
+          {children}
       </body>
     </html>
   );
