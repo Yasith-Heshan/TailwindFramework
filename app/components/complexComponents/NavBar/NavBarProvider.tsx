@@ -13,7 +13,6 @@ const NavBarProvider = () => {
     { name: "LoadingSection", route: "/loadingSection" },
     { name: "SideBar", route: "/sidebar" },
     { name: "Pagination", route: "/pagination" },
-    { name: "Modal", route: "/modal" },
   ];
   const userDetails = {
     name: "John Doe",

@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { Controller, Control } from "react-hook-form";
-import TextInput from "../../basicComponents/TextInput/TextInput";
+import TextArea from "../../basicComponents/TextInput/TextArea";
 
-interface ControlledTextFieldProps {
+interface ControlledTextAreaProps {
   name: string;
   label: string;
   control: Control<any>;
@@ -11,20 +11,20 @@ interface ControlledTextFieldProps {
   successMessage?: string;
   rules?: any;
   placeholder?: string;
-  type?: string;
-  [x: string]: any; // To accept additional props for TextInput
+  rows?: number;
+  [x: string]: any; // To accept additional props for TextArea
 }
 
-const ControlledTextInput: FC<ControlledTextFieldProps> = ({
+const ControlledTextArea: FC<ControlledTextAreaProps> = ({
   name,
   label,
   control,
   defaultValue = "",
-  type,
   errorMessage,
   successMessage,
   rules,
   placeholder,
+  rows,
   ...rest
 }) => {
   return (
@@ -34,7 +34,7 @@ const ControlledTextInput: FC<ControlledTextFieldProps> = ({
       defaultValue={defaultValue}
       rules={rules}
       render={({ field, fieldState: { error, isDirty } }) => (
-        <TextInput
+        <TextArea
           {...field}
           label={label}
           error={!!error}
@@ -42,13 +42,12 @@ const ControlledTextInput: FC<ControlledTextFieldProps> = ({
           errorMessage={error ? errorMessage : ""}
           successMessage={isDirty && !error ? successMessage : ""}
           placeholder={placeholder}
-          type={type || "text"}
+          rows={rows}
           {...rest}
-          />
+        />
       )}
-      
     />
   );
 };
 
-export default ControlledTextInput;
+export default ControlledTextArea;

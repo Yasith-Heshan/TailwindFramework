@@ -78,7 +78,7 @@ const DropDown = forwardRef<HTMLInputElement, Props>(
     return (
       <div className={`${containerClassName} mb-6 h-24`}>
         <label htmlFor={name} className={labelBoxClassName}>
-          Select an option
+          {label}
         </label>
         <select
           {...rest}
@@ -98,7 +98,7 @@ const DropDown = forwardRef<HTMLInputElement, Props>(
             <span className="font-medium">Error!</span> {errorMessage}
           </p>
         ) : (
-          success && (
+          success && successMessage && (
             <p className="mt-2 text-sm text-green-600 dark:text-green-500">
               <span className="font-medium">Great!</span> {successMessage}
             </p>
