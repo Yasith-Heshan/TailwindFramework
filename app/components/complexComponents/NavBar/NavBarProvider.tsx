@@ -38,6 +38,8 @@ const NavBarProvider = () => {
         userDetails={userDetails}
         mainMenu={mainMenu}
         userMenu={userMenu}
+        logingRoute="/login"
+        signupRoute="/signup"
       />
     </div>
   );
